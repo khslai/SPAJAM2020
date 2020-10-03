@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Dance : MonoBehaviour
 {
+
+    [SerializeField] private GameManager gameManager;
+
     //ArrayList<Notes>() noteslist;
     public class notesData{
         public Vector2 pos;
@@ -26,12 +29,20 @@ public class Dance : MonoBehaviour
 
     }
 
+    public void DoInitialize()
+    {
+
+    }
+
     //リード側がノーツを記録する処理
     public void AddNotes(Vector2 pos, float time)
     {
-        notesData data = new notesData();
-        data.pos = pos;data.time = time;
-        notesList.Add(data);
+        if (gameManager.phase == GameManager.Phase.Leading)
+        {
+            notesData data = new notesData();
+            data.pos = pos; data.time = time;
+            notesList.Add(data);
+        }
     }
 
 }
