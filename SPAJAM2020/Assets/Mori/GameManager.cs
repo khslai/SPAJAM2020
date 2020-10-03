@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     public enum Phase { 
         Leading = 0,
         Waiting = 1,
-        Following = 2
+        Following = 2,
         //Waitingなど演出フェーズがある場合、追加してよい
+        Title = 3,
+        Final = 4
     }
 
 
-    public Phase phase = Phase.Leading;
+    public Phase phase;// = Phase.Leading;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
             //Danceを生成する
             TogglePhase();
         }
+        //α..フェーズごとに既定の数の音数を打ったら or 時間経過
 
         //
         switch (phase) {
