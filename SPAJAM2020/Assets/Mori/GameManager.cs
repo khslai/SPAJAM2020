@@ -17,7 +17,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public enum GamePhase
     {
         Leading = 0,
-        Following = 1
+        Following = 1,
+        Waiting = 2,
+        Title = 3,
+        Final = 4
         //Waitingなど演出フェーズがある場合、追加してよい
     }
     public GamePhase phase = GamePhase.Leading;
@@ -95,6 +98,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             DanceFollowing.DoUninit();
             Dance.DoInitialize();
         }
+    }
+
+    //TogglePhaseから乗り換える。
+    void ChangePhase(GamePhase nextphase)
+    {
+        Debug.Log("PlayerStart" + nextphase.ToString());
+        phase = nextphase;
+        phaseText.text = nextphase.ToString();
+        switch (phase) {
+            case GamePhase.Leading: Dance.DoInitialize(); break;
+            case GamePhase.Following: DanceFollowing.DoInitialize(); DanceFollowing.DoUninit();
+                break;
+        }
+
     }
 
     //Danceを生成する関数
