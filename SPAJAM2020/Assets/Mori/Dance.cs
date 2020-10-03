@@ -2,36 +2,35 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public class notesData
+{
+    public Vector2 pos;
+    public float time;
+}
+
 public class Dance : MonoBehaviour
 {
 
     [SerializeField] private GameManager gameManager;
 
     //ArrayList<Notes>() noteslist;
-    public class notesData{
-        public Vector2 pos;
-        public float time;
-    }
 
 
     public List<notesData> notesList = new List<notesData>();
 
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    /// <summary>
+    /// ステートが始まってからの時間
+    /// </summary>
+    public float timer = 0;
 
     public void DoInitialize()
     {
+        timer = 0;
+    }
 
+    public void DoUpdate()
+    {
+        timer += Time.deltaTime;
     }
 
     //リード側がノーツを記録する処理
