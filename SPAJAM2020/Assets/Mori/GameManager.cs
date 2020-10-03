@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]private GameObject DancePrefab;
+    [SerializeField]private Dance Dance;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +30,14 @@ public class GameManager : MonoBehaviour
 
         }
 
+
+
     }
 
     //Danceを生成する関数
     private void MakeDance()
     {
         Debug.Log("PlayerStart DanceLeading");
-        //空のダンスオブジェクトを作成
-        GameObject.Instantiate(DancePrefab);
     }
 
 }

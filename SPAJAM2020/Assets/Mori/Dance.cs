@@ -5,7 +5,13 @@ using System.Collections.Generic;
 public class Dance : MonoBehaviour
 {
     //ArrayList<Notes>() noteslist;
-    List<Notes> notesList = new List<Notes>();
+    public class notesData{
+        public Vector2 pos;
+        public float time;
+    }
+
+
+    public List<notesData> notesList = new List<notesData>();
 
 
     // Use this for initialization
@@ -21,9 +27,11 @@ public class Dance : MonoBehaviour
     }
 
     //リード側がノーツを記録する処理
-    public void AddNotes(Notes notes)
+    public void AddNotes(Vector2 pos, float time)
     {
-        notesList.Add(notes);
+        notesData data = new notesData();
+        data.pos = pos;data.time = time;
+        notesList.Add(data);
     }
 
 }
