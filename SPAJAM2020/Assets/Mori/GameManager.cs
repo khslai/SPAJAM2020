@@ -6,6 +6,16 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]private Dance Dance;
 
+    //ゲームの状態を表す変数
+    enum Phase { 
+        Leading = 0,
+        Following = 1
+        //Waitingなど演出フェーズがある場合、追加してよい
+    }
+
+
+    Phase phase = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +26,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Danceを生成する
+            TogglePhase();
+        }
     }
 
     //デバッグ用にキー入力でフェーズを入れ替えられるように
     void TogglePhase()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Danceを生成する
-            MakeDance();
-
-
-        }
-
-
+        //プロトの仕様. 0と 1を交互に行う
+        phase = (1 - phase);
 
     }
 
