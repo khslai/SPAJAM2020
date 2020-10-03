@@ -4,47 +4,44 @@ using UnityEngine;
 
 // InputManager : 入力マネージャー
 
-public class InputManager : MonoBehaviour
+public class InputManager : SingletonMonoBehaviour<InputManager>
 {
     [SerializeField] Note note = null;
 
+    void Start()
+    {
+        if (note == null)
+        {
+            Debug.LogError("Please set note to the " + name + "'s inspector.");
+        }
+    }
+
     void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
-        {
-            ButtonDown(0f);
-        }
-#else
-        var touch = Input.GetTouch(0);
-        switch (touch.phase)
-        {
-            // 画面に指が触れた時に行いたい処理をここに書く
-            case TouchPhase.Began:
-
-                ButtonDown();
-                break;
-
-            // 画面上で指が動いたときに行いたい処理をここに書く
-            case TouchPhase.Moved:
-                break;
-            // 指が画面に触れているが動いてはいない時に行いたい処理をここに書く
-            case TouchPhase.Stationary:
-                break;
-            // 画面から指が離れた時に行いたい処理をここに書く
-            case TouchPhase.Ended:
-                break;
-            // システムがタッチの追跡をキャンセルした時に行いたい処理をここに書く
-            case TouchPhase.Canceled:
-                break;
-            case default:
-                break;
-        }
-#endif
     }
 
     public void ButtonDown(float spawnTime)
     {
+        bool flag = false;
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            flag = true;
+        }
+#else
+        var touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Began)
+        {
+            flag = true;
+        }
+#endif
+
+        if (!flag)
+        {
+            return;
+        }
+
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         worldPos.z = 0f;
         //Debug.Log("worldPos" + worldPos.x + " " + worldPos.y + " " + worldPos.z);
@@ -53,6 +50,7 @@ public class InputManager : MonoBehaviour
         temp.transform.position = worldPos;
         temp.SpawnTime = spawnTime;
 
-        // TODO: Dance.AddNotes()を呼び出してNoteを追加する
+        // ノーツを記録する処理
+        GameManager.Instance.DanceFollowing.RespawnNotesList.Add(temp);
     }
 }

@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿// Note
+// ノーツクラス
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    [SerializeField] float disappearTime = 5f;
+    [SerializeField] float disappearTime = 3f;
 
     public float SpawnTime { get; set; } = 0f;
 
@@ -19,10 +22,12 @@ public class Note : MonoBehaviour
         {
             if (!mirrored)
             {
+                // リードフェイスでActiveをfalseをしておく
                 gameObject.SetActive(false);
             }
             else
             {
+                // フォロワーフェイスで終了したらオブジェクト破壊
                 Destroy(this.gameObject);
             }
         }
