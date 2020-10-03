@@ -347,6 +347,24 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7582501403375601624, guid: 28c9f5e4c77b89148b01411ff0905249, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582501403375601624, guid: 28c9f5e4c77b89148b01411ff0905249, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582501403375601624, guid: 28c9f5e4c77b89148b01411ff0905249, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582501403375601624, guid: 28c9f5e4c77b89148b01411ff0905249, type: 3}
+      propertyPath: m_Text
+      value: 'Debug
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c9f5e4c77b89148b01411ff0905249, type: 3}
 --- !u!1 &519420028
@@ -622,7 +640,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5880631282056582156, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
       propertyPath: WaitTime
-      value: 1.5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081138761617241874, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
+      propertyPath: followingdelta
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7081138761617241884, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
       propertyPath: m_LocalPosition.x

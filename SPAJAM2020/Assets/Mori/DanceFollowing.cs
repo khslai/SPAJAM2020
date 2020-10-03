@@ -18,7 +18,8 @@ public class DanceFollowing : MonoBehaviour
     public void DoUpdate()
     {
         // タップしたらノーツ再生
-        InputManager.Instance.ButtonDownFollowing(GameManager.Instance.timer);
+        //InputManager.Instance.ButtonDownFollowing();
+        InputManager.Instance.ButtonDown(0);
 
         //timer += Time.deltaTime;
 
