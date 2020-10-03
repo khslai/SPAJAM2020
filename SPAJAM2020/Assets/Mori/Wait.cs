@@ -5,7 +5,7 @@ public class Wait : MonoBehaviour {
 
     public GameManager gameManager;
     public float WaitTime = 0.5f;
-    [HideInInspector]public GameManager.GamePhase nextnextphase;
+    [HideInInspector]public GameManager.GamePhase nextnextphase =GameManager.GamePhase.Leading;
     // Use this for initialization
 
     public void DoUpdate()

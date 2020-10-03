@@ -41,4 +41,17 @@ public class Note : MonoBehaviour
         destroyTimer = 0f;
         mirrored = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "HitChecker")
+        {
+            //得点の制御
+
+
+            //ノーツを消滅させる
+            GameObject.Destroy(this.gameObject);
+        }
+
+    }
 }

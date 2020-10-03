@@ -7,7 +7,10 @@ using UnityEngine;
 public class InputManager : SingletonMonoBehaviour<InputManager>
 {
     [SerializeField] Note note = null;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject HitCheckerPrefab;
 
+    public Vector3 TouchedPos; 
     void Start()
     {
         if (note == null)
@@ -52,5 +55,41 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
 
         // ノーツを記録する処理
         GameManager.Instance.DanceFollowing.RespawnNotesList.Add(temp);
+
+    }
+
+    //
+    public void ButtonDownFollowing(float spawnTime)
+    {
+        bool flag = false;
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            flag = true;
+        }
+#else
+        var touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Began)
+        {
+            flag = true;
+        }
+#endif
+
+        if (!flag)
+        {
+            return;
+        }
+
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        worldPos.z = 0f;
+        TouchedPos = worldPos;
+        //全ての
+        //Debug.Log("worldPos" + worldPos.x + " " + worldPos.y + " " + worldPos.z);
+
+
+        //Hitチェッカーを作成
+        GameObject.Instantiate(HitCheckerPrefab, worldPos,Quaternion.identity);
+
     }
 }

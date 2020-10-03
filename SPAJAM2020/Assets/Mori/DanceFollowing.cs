@@ -17,6 +17,9 @@ public class DanceFollowing : MonoBehaviour
 
     public void DoUpdate()
     {
+        // タップしたらノーツ再生
+        InputManager.Instance.ButtonDownFollowing(GameManager.Instance.timer);
+
         //timer += Time.deltaTime;
 
         //各ノードを生成するタイミングの制御

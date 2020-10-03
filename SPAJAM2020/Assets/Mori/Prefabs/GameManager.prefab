@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phaseTime: 5
-  dance: {fileID: 0}
-  danceFollowing: {fileID: 0}
-  wait: {fileID: 0}
+  dance: {fileID: 7081138761617241885}
+  danceFollowing: {fileID: 7081138761617241874}
+  wait: {fileID: 5880631282056582156}
   phaseText: {fileID: 0}
-  phase: 0
+  phase: 2
   timer: 0
 --- !u!114 &7081138761617241885
 MonoBehaviour:
