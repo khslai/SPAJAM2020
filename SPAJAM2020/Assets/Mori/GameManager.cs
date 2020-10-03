@@ -116,8 +116,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         phase = nextphase;
         phaseText.text = nextphase.ToString();
         switch (phase) {
-            case GamePhase.Leading: Dance.DoInitialize(); break;
-            case GamePhase.Following: DanceFollowing.DoInitialize(); DanceFollowing.DoUninit(); break;
+            case GamePhase.Leading: Dance.DoInitialize(); DanceFollowing.DoUninit(); break;
+            case GamePhase.Following: DanceFollowing.DoInitialize();  break;
         }
 
         timer = 0f;
