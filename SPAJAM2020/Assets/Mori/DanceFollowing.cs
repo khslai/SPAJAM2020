@@ -17,8 +17,11 @@ public class DanceFollowing : MonoBehaviour
 
     public void DoUpdate()
     {
+        Debug.Log("FollowingDoUpDate");
+
         // タップしたらノーツ再生
-        InputManager.Instance.ButtonDownFollowing(GameManager.Instance.timer);
+        //InputManager.Instance.ButtonDownFollowing();
+        InputManager.Instance.ButtonDown(0);
 
         //timer += Time.deltaTime;
 
@@ -27,6 +30,7 @@ public class DanceFollowing : MonoBehaviour
         {
             RespawnNotesList[0].ObjectMirror();
             RespawnNotesList.RemoveAt(0);
+            Debug.Log("FollowingReMoveAt");
         }
 
         //時間によるシーン遷移
@@ -35,6 +39,7 @@ public class DanceFollowing : MonoBehaviour
             gameManager.ChangePhase(GameManager.GamePhase.Waiting);
             gameManager.Wait.nextnextphase = GameManager.GamePhase.Leading;
 
+            Debug.Log("FollowingOverTime");
         }
 
     }
