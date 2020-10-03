@@ -10,12 +10,13 @@ public class GameManager : MonoBehaviour
     //ゲームの状態を表す変数
     public enum Phase { 
         Leading = 0,
-        Following = 1
+        Waiting = 1,
+        Following = 2
         //Waitingなど演出フェーズがある場合、追加してよい
     }
 
 
-    public Phase phase = 0;
+    public Phase phase = Phase.Leading;
 
     // Start is called before the first frame update
     void Start()
