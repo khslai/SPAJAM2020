@@ -4,14 +4,20 @@ using UnityEngine;
 
 // InputManager : 入力マネージャー
 
-public class InputManager : MonoBehaviour
+public class InputManager : SingletonMonoBehaviour<InputManager>
 {
     [SerializeField] Note note = null;
-    [SerializeField] DanceFollowing danceFollowing = null;
+
+    void Start()
+    {
+        if (note == null)
+        {
+            Debug.LogError("Please set note to the " + name + "'s inspector.");
+        }
+    }
 
     void Update()
     {
-
     }
 
     public void ButtonDown(float spawnTime)
@@ -44,7 +50,7 @@ public class InputManager : MonoBehaviour
         temp.transform.position = worldPos;
         temp.SpawnTime = spawnTime;
 
-        // TODO: Dance.AddNotes()を呼び出してNoteを追加する
-        danceFollowing.RespawnNotesList.Add(temp);
+        // ノーツを記録する処理
+        GameManager.Instance.DanceFollowing.RespawnNotesList.Add(temp);
     }
 }

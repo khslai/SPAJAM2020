@@ -1,70 +1,98 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    [SerializeField]private Dance Dance;
-    [SerializeField] private DanceFollowing DanceFollowing;
+    [SerializeField] private float phaseTime = 5f;
+    [SerializeField] private Dance dance = null;
+    [SerializeField] private DanceFollowing danceFollowing = null;
+    [SerializeField] private Text phaseText = null;
+
+    public Dance Dance { get { return dance; } }
+    public DanceFollowing DanceFollowing { get { return danceFollowing; } }
 
     //ゲームの状態を表す変数
-    public enum Phase { 
+    public enum GamePhase
+    {
         Leading = 0,
         Following = 1
         //Waitingなど演出フェーズがある場合、追加してよい
     }
+    public GamePhase phase = GamePhase.Leading;
 
-
-    public Phase phase = 0;
+    public float timer { get; private set; } = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (dance == null)
+        {
+            Debug.LogError("Please set dance to the " + name + "'s inspector.");
+        }
+        if (danceFollowing == null)
+        {
+            Debug.LogError("Please set danceFollowing to the " + name + "'s inspector.");
+        }
+        if (phaseText == null)
+        {
+            Debug.LogError("Please set phaseText to the " + name + "'s inspector.");
+        }
+
         //ダンスを生成
         Debug.Log("PlayerStart DanceLeading");
-
-
+        phaseText.text = "Leading Phase";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Danceを生成する
-            TogglePhase();
-        }
-
         //
-        switch (phase) {
-            case Phase.Leading:
+        switch (phase)
+        {
+            case GamePhase.Leading:
+
+                timer += Time.deltaTime;
                 Dance.DoUpdate();
                 break;
-            case Phase.Following:
+
+            case GamePhase.Following:
+
+                timer += Time.deltaTime;
                 DanceFollowing.DoUpdate();
                 break;
 
+            default:
+                break;
         }
 
-
+        if (timer >= phaseTime || Input.GetKeyDown(KeyCode.Space))
+        {
+            // Phaseを切り替える
+            TogglePhase();
+        }
     }
 
     //デバッグ用にキー入力でフェーズを入れ替えられるように
     void TogglePhase()
     {
+        timer = 0f;
+
         //プロトの仕様. 0と 1を交互に行う
-
-        if(phase == Phase.Leading)
+        if (phase == GamePhase.Leading)
         {
-            phase = Phase.Following;
             Debug.Log("PlayerStart DanceFollowing");
+            phaseText.text = "Following Phase";
+            phase = GamePhase.Following;
             DanceFollowing.DoInitialize();
-
         }
-        else if (phase == Phase.Following)
+        else if (phase == GamePhase.Following)
         {
-            phase = Phase.Leading;
             Debug.Log("PlayerStart DanceLeading");
+            phaseText.text = "Leading Phase";
+            phase = GamePhase.Leading;
+            DanceFollowing.DoUninit();
             Dance.DoInitialize();
         }
     }
@@ -74,5 +102,4 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("PlayerStart DanceLeading");
     }
-
 }
