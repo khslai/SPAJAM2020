@@ -54,7 +54,7 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
             //Debug.Log("worldPos" + worldPos.x + " " + worldPos.y + " " + worldPos.z);
             //Debug.LogError("worldPos" + worldPos.x + " " + worldPos.y + " " + worldPos.z);
             //Hitチェッカーを作成
-            //GameObject.Instantiate(HitCheckerPrefab, worldPos, Quaternion.identity);
+            GameObject.Instantiate(HitCheckerPrefab, worldPos, Quaternion.identity);
 
             Debug.Log("Touched In Following");
         }
