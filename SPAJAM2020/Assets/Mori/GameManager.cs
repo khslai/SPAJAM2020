@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]private Dance Dance;
+    [SerializeField] private DanceFollowing DanceFollowing;
 
     //ゲームの状態を表す変数
     public enum Phase { 
@@ -35,6 +36,17 @@ public class GameManager : MonoBehaviour
         }
 
         //
+        switch (phase) {
+            case Phase.Leading:
+                Dance.DoUpdate();
+                break;
+            case Phase.Following:
+                DanceFollowing.DoUpdate();
+                break;
+
+        }
+
+
     }
 
     //デバッグ用にキー入力でフェーズを入れ替えられるように
@@ -46,11 +58,14 @@ public class GameManager : MonoBehaviour
         {
             phase = Phase.Following;
             Debug.Log("PlayerStart DanceFollowing");
+            DanceFollowing.DoInitialize();
 
-        }else if (phase == Phase.Following)
+        }
+        else if (phase == Phase.Following)
         {
             phase = Phase.Leading;
             Debug.Log("PlayerStart DanceLeading");
+            Dance.DoInitialize();
         }
     }
 
