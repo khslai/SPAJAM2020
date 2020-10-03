@@ -327,6 +327,10 @@ PrefabInstance:
       propertyPath: note
       value: 
       objectReference: {fileID: 2303734754207850037, guid: 4e840ad166db33a4889febb4d9f304c4, type: 3}
+    - target: {fileID: 2637498295195343901, guid: b8684b58a3d277e4ba60c58922789848, type: 3}
+      propertyPath: HitCheckerPrefab
+      value: 
+      objectReference: {fileID: 6698727367554505606, guid: 401207ed2d9e22444b51865613965b53, type: 3}
     - target: {fileID: 2637498295195343902, guid: b8684b58a3d277e4ba60c58922789848, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
