@@ -28,10 +28,12 @@ public class Note : MonoBehaviour
         }
     }
 
-    private void ObjectMirror()
+    // ノーツのミラーにする
+    public void ObjectMirror()
     {
         gameObject.SetActive(true);
         transform.position = new Vector3(-transform.position.x, -transform.position.y, 0f);
+        destroyTimer = 0f;
         mirrored = true;
     }
 }

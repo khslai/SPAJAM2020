@@ -37,11 +37,13 @@ public class InputManager : MonoBehaviour
             // システムがタッチの追跡をキャンセルした時に行いたい処理をここに書く
             case TouchPhase.Canceled:
                 break;
+            case default:
+                break;
         }
 #endif
     }
 
-    private void ButtonDown(float spawnTime)
+    public void ButtonDown(float spawnTime)
     {
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         worldPos.z = 0f;
@@ -50,5 +52,7 @@ public class InputManager : MonoBehaviour
         Note temp = Instantiate(note);
         temp.transform.position = worldPos;
         temp.SpawnTime = spawnTime;
+
+        // TODO: Dance.AddNotes()を呼び出してNoteを追加する
     }
 }
