@@ -43,3 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackgroundSprite1
+    uniqueID: 3430482541
+    locked: 0
+  - name: BackgroundSprite2
+    uniqueID: 2953046377
+    locked: 0
+  - name: BackgroundSprite3
+    uniqueID: 3836369619
+    locked: 0
+  - name: BackgroundSprite4
+    uniqueID: 1739357175
+    locked: 0
+  - name: Note
+    uniqueID: 3073207915
+    locked: 0
