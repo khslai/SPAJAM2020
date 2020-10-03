@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class DanceFollowing : MonoBehaviour
 {
-    public List<notesData> notesListFollow = new List<notesData>();
+    public List<Note> RespawnNotesList { get; private set; } = new List<Note>();
+    //public List<notesData> notesListFollow = new List<notesData>();
 
-    [SerializeField] private Dance dance;
+    //[SerializeField] private Dance dance;
 
     // Use this for initialization
 
@@ -17,7 +18,7 @@ public class DanceFollowing : MonoBehaviour
     public void DoInitialize()
     {
         //Dance側のnoteListをコピーする
-        notesListFollow = dance.notesList;
+        //notesListFollow = dance.notesList;
         timer = 0;
     }
 
@@ -26,4 +27,5 @@ public class DanceFollowing : MonoBehaviour
     {
         timer += Time.deltaTime;
     }
+
 }
