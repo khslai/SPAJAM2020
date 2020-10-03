@@ -14,6 +14,14 @@ public class Note : MonoBehaviour
     private float destroyTimer = 0f;
     private bool mirrored = false;
 
+    public GameObject RippleinFX;
+    public GameObject RippleoutFX;
+
+    void Start()
+    {
+        Instantiate(RippleinFX, this.transform.position, Quaternion.identity);
+    }
+
     void Update()
     {
         destroyTimer += Time.deltaTime;
@@ -38,6 +46,7 @@ public class Note : MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.position = new Vector3(-transform.position.x, -transform.position.y, 0f);
+        Instantiate(RippleoutFX, this.transform.position, Quaternion.identity);
         destroyTimer = 0f;
         mirrored = true;
     }
