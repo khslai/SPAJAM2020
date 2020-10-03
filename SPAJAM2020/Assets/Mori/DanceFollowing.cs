@@ -6,25 +6,34 @@ public class DanceFollowing : MonoBehaviour
 {
     public List<Note> RespawnNotesList { get; private set; } = new List<Note>();
 
-    /// <summary>
-    /// ステートが始まってからの時間
-    /// </summary>
-    //private float timer = 0f;
+    public GameManager gameManager;
+    public float FollowingTime;//DanceTimeから自動で設定
+    public float followingdelta = 1.0f;
 
     public void DoInitialize()
     {
-        //timer = 0;
+
     }
 
     public void DoUpdate()
     {
         //timer += Time.deltaTime;
 
+        //各ノードを生成するタイミングの制御
         if (RespawnNotesList.Count != 0 && GameManager.Instance.timer >= RespawnNotesList[0].SpawnTime)
         {
             RespawnNotesList[0].ObjectMirror();
             RespawnNotesList.RemoveAt(0);
         }
+
+        //時間によるシーン遷移
+        if (gameManager.timer > FollowingTime)
+        {
+            gameManager.ChangePhase(GameManager.GamePhase.Waiting);
+            gameManager.Wait.nextnextphase = GameManager.GamePhase.Leading;
+
+        }
+
     }
 
     public void DoUninit()

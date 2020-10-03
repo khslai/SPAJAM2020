@@ -8,10 +8,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField] private float phaseTime = 5f;
     [SerializeField] private Dance dance = null;
     [SerializeField] private DanceFollowing danceFollowing = null;
+    [SerializeField] private Wait wait = null;
     [SerializeField] private Text phaseText = null;
 
     public Dance Dance { get { return dance; } }
     public DanceFollowing DanceFollowing { get { return danceFollowing; } }
+    public Wait Wait { get { return wait; } }
 
     //ゲームの状態を表す変数
     public enum GamePhase
@@ -25,7 +27,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
     public GamePhase phase = GamePhase.Leading;
 
-    public float timer { get; private set; } = 0f;
+    public float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -66,15 +68,21 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 DanceFollowing.DoUpdate();
                 break;
 
+            case GamePhase.Waiting:
+                timer += Time.deltaTime;
+                Wait.DoUpdate();
+                break;
+
             default:
                 break;
         }
-
+        /*
         if (timer >= phaseTime || Input.GetKeyDown(KeyCode.Space))
         {
             // Phaseを切り替える
             TogglePhase();
         }
+        */
     }
 
     //デバッグ用にキー入力でフェーズを入れ替えられるように
@@ -101,17 +109,18 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
 
     //TogglePhaseから乗り換える。
-    void ChangePhase(GamePhase nextphase)
+    public void ChangePhase(GamePhase nextphase)
     {
+
         Debug.Log("PlayerStart" + nextphase.ToString());
         phase = nextphase;
         phaseText.text = nextphase.ToString();
         switch (phase) {
             case GamePhase.Leading: Dance.DoInitialize(); break;
-            case GamePhase.Following: DanceFollowing.DoInitialize(); DanceFollowing.DoUninit();
-                break;
+            case GamePhase.Following: DanceFollowing.DoInitialize(); DanceFollowing.DoUninit(); break;
         }
 
+        timer = 0f;
     }
 
     //Danceを生成する関数
