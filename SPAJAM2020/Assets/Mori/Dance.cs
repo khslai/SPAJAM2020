@@ -28,7 +28,10 @@ public class Dance : MonoBehaviour
         //timer += Time.deltaTime;
 
         // タップしたらノーツ再生
-        InputManager.Instance.ButtonDown(GameManager.Instance.timer);
+        if (gameManager.RespawnNotesList.Count < ScoreManager.Instance.NowMaxNode_N)
+        {
+            InputManager.Instance.ButtonDown(GameManager.Instance.timer);
+        }
 
         //時間によるシーン遷移
         if (gameManager.timer > DanceTime )
