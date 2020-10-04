@@ -9,13 +9,13 @@ public class HitChecker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer > 0.1f)
+        if (timer > 0.1f)
         {
             GameObject.Destroy(this.gameObject);
         }
@@ -24,6 +24,13 @@ public class HitChecker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag == "Notes")
+        {
+            ScoreManager.Instance.Score++;
+            ScoreManager.Instance.CalledShowSprite = false;
+
+        }
+
         Debug.Log("♬");
         //ノーツを消滅させる
 

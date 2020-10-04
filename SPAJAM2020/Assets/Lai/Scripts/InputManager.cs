@@ -7,8 +7,7 @@ using UnityEngine;
 public class InputManager : SingletonMonoBehaviour<InputManager>
 {
     [SerializeField] Note note = null;
-    [SerializeField] GameManager gameManager;
-    [SerializeField] GameObject HitCheckerPrefab;
+    [SerializeField] GameObject HitCheckerPrefab = null;
 
     public Vector3 TouchedPos; 
     void Start()
@@ -16,6 +15,10 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
         if (note == null)
         {
             Debug.LogError("Please set note to the " + name + "'s inspector.");
+        }
+        if (HitCheckerPrefab == null)
+        {
+            Debug.LogError("Please set HitCheckerPrefab to the " + name + "'s inspector.");
         }
     }
 
