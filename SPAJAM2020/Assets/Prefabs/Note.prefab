@@ -100,6 +100,7 @@ MonoBehaviour:
   disappearTime: 3
   RippleinFX: {fileID: 8494347782835334667, guid: f1e24f640c66f2244a0e2df3661f5b6a, type: 3}
   RippleoutFX: {fileID: 2105578431632872902, guid: 44b59e97562307c4e93534d9bcd2f2f8, type: 3}
+  HitFX: {fileID: 2052967670053251564, guid: a14147f0e4dfafc41a4bd33d9f50de0a, type: 3}
 --- !u!58 &2754632911839959965
 CircleCollider2D:
   m_ObjectHideFlags: 0

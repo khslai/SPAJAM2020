@@ -17,9 +17,11 @@ public class Note : MonoBehaviour
     public GameObject RippleinFX;
     public GameObject RippleoutFX;
 
+    public GameObject HitFX;
+
     void Start()
     {
-        Instantiate(RippleinFX, this.transform.position, Quaternion.identity);
+        Instantiate(RippleoutFX, this.transform.position, Quaternion.identity);
     }
 
     void Update()
@@ -46,7 +48,7 @@ public class Note : MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.position = new Vector3(-transform.position.x, -transform.position.y, 0f);
-        Instantiate(RippleoutFX, this.transform.position, Quaternion.identity);
+        Instantiate(RippleinFX, this.transform.position, Quaternion.identity);
         destroyTimer = 0f;
         mirrored = true;
     }
@@ -57,7 +59,7 @@ public class Note : MonoBehaviour
         {
             //得点の制御
 
-
+            Instantiate(HitFX, this.transform.position, Quaternion.identity);
             //ノーツを消滅させる
             GameObject.Destroy(this.gameObject);
         }
