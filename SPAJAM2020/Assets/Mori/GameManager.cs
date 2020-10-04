@@ -59,7 +59,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //ダンスを生成
         Debug.Log("PlayerStart DanceLeading");
         phaseText.text = "Leading Phase";
-        ChangePhase(GamePhase.Leading);
+        ChangePhase(GamePhase.Title);
     }
 
     // Update is called once per frame
