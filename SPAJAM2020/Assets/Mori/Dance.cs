@@ -39,7 +39,7 @@ public class Dance : MonoBehaviour
             gameManager.Wait.nextnextphase = GameManager.GamePhase.Following;
         }
         //タップ回数によるシーン遷移
-        if(gameManager.DanceFollowing.RespawnNotesList.Count >= ScoreManager.Instance.NowMaxNode_N)
+        if(gameManager.RespawnNotesList.Count >= ScoreManager.Instance.NowMaxNode_N)
         {
             //現在の時間をDanceFollowingに代入 (+補正値を追加)
             gameManager.DanceFollowing.FollowingTime = gameManager.timer + gameManager.DanceFollowing.followingdelta;
