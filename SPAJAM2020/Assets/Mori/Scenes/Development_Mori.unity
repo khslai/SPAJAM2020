@@ -691,6 +691,10 @@ PrefabInstance:
       propertyPath: backgourndSprites.Array.data[3]
       value: 
       objectReference: {fileID: 1014940562}
+    - target: {fileID: 4235932198755882104, guid: c2d545688eababf4f8ee50b3bb9d66e1, type: 3}
+      propertyPath: ClearScore
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4235932198755882105, guid: c2d545688eababf4f8ee50b3bb9d66e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1371,6 +1375,10 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1840710027}
+    - target: {fileID: 8485068469942784814, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
+      propertyPath: FinalShakeAnimator
+      value: 
+      objectReference: {fileID: 2099579354}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
 --- !u!114 &1663356067 stripped
@@ -1524,6 +1532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1733471582}
     m_Modifications:
+    - target: {fileID: -7592455285887727222, guid: 6404ca50e4a8cc54eadc54ff55dd7663, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7eaec0231ef8fc24c9b41f0d04c886f9, type: 2}
     - target: {fileID: 3744443426432437877, guid: 6404ca50e4a8cc54eadc54ff55dd7663, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -1582,7 +1594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5101064901544000923, guid: 6404ca50e4a8cc54eadc54ff55dd7663, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6404ca50e4a8cc54eadc54ff55dd7663, type: 3}
@@ -1622,6 +1634,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
+--- !u!95 &2099579354 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -7592455285887727222, guid: 6404ca50e4a8cc54eadc54ff55dd7663, type: 3}
+  m_PrefabInstance: {fileID: 2099579349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &11867767477388156
 PrefabInstance:
   m_ObjectHideFlags: 0

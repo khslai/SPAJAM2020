@@ -146,6 +146,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 DanceFollowing.DoInitialize();
                 break;
 
+            case GamePhase.Final:
+
+                Final.DoInitialize();
+                break;
+
             default:
                 break;
         }

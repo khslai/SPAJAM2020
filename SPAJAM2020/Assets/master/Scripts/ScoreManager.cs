@@ -20,6 +20,8 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     public int NowMaxNode_N = 1; 
 
     public int Score  = 0;
+
+    public int ClearScore = 76;
     public bool CalledShowSprite { private get; set; } = false;
 
     private List<bool> showSpriteFlags = new List<bool>();
