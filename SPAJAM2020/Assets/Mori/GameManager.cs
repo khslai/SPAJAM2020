@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [SerializeField] private Dance dance = null;
+    [SerializeField] private ScoreManager scoreManager = null;
     [SerializeField] private DanceFollowing danceFollowing = null;
     [SerializeField] private Wait wait = null;
     [SerializeField] private Text phaseText = null;
@@ -15,6 +16,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     public Dance Dance { get { return dance; } }
     public DanceFollowing DanceFollowing { get { return danceFollowing; } }
+
+    public ScoreManager ScoreManager { get { return scoreManager; } }
     public Wait Wait { get { return wait; } }
     public List<Note> RespawnNotesList { get; set; } = new List<Note>();
 

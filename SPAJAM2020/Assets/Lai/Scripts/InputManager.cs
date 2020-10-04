@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class InputManager : SingletonMonoBehaviour<InputManager>
 {
+    [SerializeField] GameManager gameManager;
+
     [SerializeField] Note note = null;
     [SerializeField] GameObject HitCheckerPrefab = null;
 
