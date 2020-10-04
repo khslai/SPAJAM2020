@@ -10,23 +10,22 @@ public class notesData
 
 public class Dance : MonoBehaviour
 {
+    //[SerializeField] Gradation gradation = null;
+
     public GameManager gameManager;
     public float DanceTime;
     /// <summary>
     /// ステートが始まってからの時間
     /// </summary>
-    //public float timer = 0;
 
     public void DoInitialize()
     {
         //timer = 0;
+        //gradation.PlayPhaseStartAnim();
     }
 
     public void DoUpdate()
     {
-
-        //timer += Time.deltaTime;
-
         // タップしたらノーツ再生
         if (gameManager.RespawnNotesList.Count < ScoreManager.Instance.NowMaxNode_N)
         {
@@ -41,6 +40,7 @@ public class Dance : MonoBehaviour
             gameManager.ChangePhase(GameManager.GamePhase.Waiting);
             gameManager.Wait.nextnextphase = GameManager.GamePhase.Following;
         }
+
         //タップ回数によるシーン遷移
         /*
         if(gameManager.RespawnNotesList.Count >= ScoreManager.Instance.NowMaxNode_N)
@@ -51,7 +51,6 @@ public class Dance : MonoBehaviour
             gameManager.Wait.nextnextphase = GameManager.GamePhase.Following;
         }
         */
-
     }
 
     public void DoUninit()

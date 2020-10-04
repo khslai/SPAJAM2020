@@ -1323,6 +1323,10 @@ PrefabInstance:
       propertyPath: titleanimator
       value: 
       objectReference: {fileID: 1947940343}
+    - target: {fileID: 5880631282056582156, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
+      propertyPath: WaitTime
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7081138761617241874, guid: 0c78ac6e6d4cfe440afaeaf7fc40b014, type: 3}
       propertyPath: respawnTimeOffset
       value: 1.2
