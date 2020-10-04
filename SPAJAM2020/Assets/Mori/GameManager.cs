@@ -54,7 +54,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //ダンスを生成
         Debug.Log("PlayerStart DanceLeading");
         phaseText.text = "Leading Phase";
-
+        ChangePhase(GamePhase.Leading);
     }
 
     // Update is called once per frame
@@ -143,21 +143,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         if (RespawnNotesList.Count != 0)
         {
-            if (RespawnNotesList[0].SpawnTime <= respawnTimeOffset)
+            if (timer >= RespawnNotesList[0].SpawnTime - respawnTimeOffset)
             {
-                if (timer >= RespawnNotesList[0].SpawnTime)
-                {
-                    RespawnNotesList[0].ObjectMirror(respawnTimeOffset);
-                    RespawnNotesList.RemoveAt(0);
-                }
-            }
-            else
-            {
-                if (timer >= RespawnNotesList[0].SpawnTime - respawnTimeOffset)
-                {
-                    RespawnNotesList[0].ObjectMirror(respawnTimeOffset);
-                    RespawnNotesList.RemoveAt(0);
-                }
+                RespawnNotesList[0].ObjectMirror(respawnTimeOffset);
+                RespawnNotesList.RemoveAt(0);
             }
         }
     }
