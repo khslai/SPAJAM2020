@@ -67,5 +67,9 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
             GameManager.Instance.RespawnNotesList.Add(temp);
             Debug.Log("Touched In Leading");
         }
+        else if (gameManager.phase == GameManager.GamePhase.Title)
+        {
+            GameManager.Instance.ChangePhase(GameManager.GamePhase.Leading);
+        }
     }
 }
