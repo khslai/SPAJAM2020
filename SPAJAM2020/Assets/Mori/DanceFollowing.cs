@@ -35,8 +35,22 @@ public class DanceFollowing : MonoBehaviour
         // timerが初期化されないから、Waitフェイスの時間も一緒に加算
         if (gameManager.timer > FollowingTime + gameManager.Wait.WaitTime)
         {
-            gameManager.ChangePhase(GameManager.GamePhase.Waiting);
-            gameManager.Wait.nextnextphase = GameManager.GamePhase.Leading;
+            //もし目標点数をクリアしていたらFinalPhaseに
+            if(ScoreManager.Instance.Score >= ScoreManager.Instance.ClearScore)
+            {
+
+                gameManager.ChangePhase(GameManager.GamePhase.Waiting);
+                gameManager.Wait.nextnextphase = GameManager.GamePhase.Final;
+
+            }
+            else
+            {
+                //そうでなければLeading
+                gameManager.ChangePhase(GameManager.GamePhase.Waiting);
+                gameManager.Wait.nextnextphase = GameManager.GamePhase.Leading;
+
+            }
+
 
             Debug.Log("FollowingOverTime");
         }
