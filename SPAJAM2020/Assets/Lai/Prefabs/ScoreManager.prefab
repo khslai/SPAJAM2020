@@ -50,3 +50,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   backgourndScores: 02000000040000000600000008000000
+  degrees:
+  - Node_N: 1
+    Score: 0
+  - Node_N: 2
+    Score: 3
+  - Node_N: 3
+    Score: 7
+  - Node_N: 4
+    Score: 19
+  - Node_N: 5
+    Score: 31
+  NowMaxNode_N: 1
+  Score: 0

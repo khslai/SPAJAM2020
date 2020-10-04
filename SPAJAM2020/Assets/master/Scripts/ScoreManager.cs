@@ -2,14 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class DegreeData {
+    public int Node_N = 3;
+    public int Score = 0;
+}
+
+
 public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
 {
     [SerializeField] float ShowSpriteTime = 3f;
     [SerializeField] List<SpriteRenderer> backgourndSprites = new List<SpriteRenderer>();
     [SerializeField] List<int> backgourndScores = new List<int>();
 
+    [SerializeField] public List<DegreeData> degrees = new List<DegreeData>();
 
-    public int Score { get; set; } = 0;
+    public int NowMaxNode_N = 1; 
+
+    public int Score  = 0;
     public bool CalledShowSprite { private get; set; } = false;
 
     private List<bool> showSpriteFlags = new List<bool>();
@@ -68,5 +78,19 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
         currentSprite = backgourndSprites[spriteIndex];
         showSpriteFlags[spriteIndex] = true;
         spriteIndex++;
+    }
+
+    public void SetMaxNode_N()
+    {
+        foreach(DegreeData degree in degrees)
+        {
+            if (Score >= degree.Score)
+                NowMaxNode_N = degree.Node_N;
+        }
+    }
+
+    public void SetBackGroundObject()
+    {
+
     }
 }
