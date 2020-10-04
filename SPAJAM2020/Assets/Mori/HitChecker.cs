@@ -28,6 +28,9 @@ public class HitChecker : MonoBehaviour
         {
             ScoreManager.Instance.Score++;
             ScoreManager.Instance.CalledShowSprite = false;
+            //
+            ScoreManager.Instance.SetMaxNode_N();
+            ScoreManager.Instance.SetBackGroundObject();
 
         }
 

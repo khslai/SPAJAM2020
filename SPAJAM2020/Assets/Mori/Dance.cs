@@ -12,7 +12,6 @@ public class Dance : MonoBehaviour
 {
     public GameManager gameManager;
     public float DanceTime;
-    public int MaxDanceCount = 3;
     /// <summary>
     /// ステートが始まってからの時間
     /// </summary>
@@ -25,6 +24,7 @@ public class Dance : MonoBehaviour
 
     public void DoUpdate()
     {
+
         //timer += Time.deltaTime;
 
         // タップしたらノーツ再生
@@ -39,7 +39,7 @@ public class Dance : MonoBehaviour
             gameManager.Wait.nextnextphase = GameManager.GamePhase.Following;
         }
         //タップ回数によるシーン遷移
-        if(gameManager.DanceFollowing.RespawnNotesList.Count >= MaxDanceCount)
+        if(gameManager.DanceFollowing.RespawnNotesList.Count >= ScoreManager.Instance.NowMaxNode_N)
         {
             //現在の時間をDanceFollowingに代入 (+補正値を追加)
             gameManager.DanceFollowing.FollowingTime = gameManager.timer + gameManager.DanceFollowing.followingdelta;

@@ -7,12 +7,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [SerializeField] private float phaseTime = 5f;
     [SerializeField] private Dance dance = null;
+    [SerializeField] private ScoreManager scoreManager = null;
     [SerializeField] private DanceFollowing danceFollowing = null;
     [SerializeField] private Wait wait = null;
     [SerializeField] private Text phaseText = null;
 
     public Dance Dance { get { return dance; } }
     public DanceFollowing DanceFollowing { get { return danceFollowing; } }
+
+    public ScoreManager ScoreManager { get { return scoreManager; } }
     public Wait Wait { get { return wait; } }
 
     //ゲームの状態を表す変数
