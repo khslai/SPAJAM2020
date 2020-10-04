@@ -9,6 +9,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField] private ScoreManager scoreManager = null;
     [SerializeField] private DanceFollowing danceFollowing = null;
     [SerializeField] private Wait wait = null;
+    [SerializeField] private Title title = null;
+    [SerializeField] private Final final = null;
+
     [SerializeField] private Text phaseText = null;
     [SerializeField] private Text timerText = null;
     [SerializeField] float respawnTimeOffset = 1.2f;
@@ -19,6 +22,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     public ScoreManager ScoreManager { get { return scoreManager; } }
     public Wait Wait { get { return wait; } }
+    public Title Title { get { return title; } }
+    public Final Final { get { return final; } }
     public List<Note> RespawnNotesList { get; set; } = new List<Note>();
 
     //ゲームの状態を表す変数
@@ -80,6 +85,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 Wait.DoUpdate();
                 break;
 
+            case GamePhase.Title:
+
+                timer += Time.deltaTime;
+                Title.DoUpdate();
+                break;
+
+            case GamePhase.Final:
+
+                timer += Time.deltaTime;
+                Final.DoUpdate();
+                break;
+
+
             default:
                 break;
         }
@@ -128,6 +146,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 DanceFollowing.DoInitialize();
                 break;
 
+            case GamePhase.Final:
+
+                Final.DoInitialize();
+                break;
+
             default:
                 break;
         }
@@ -160,5 +183,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 }
             }
         }
+    }
+    //周回プレイのためにゲームを初期化する
+    public void GameInit()
+    {
+        //スコア
+        //タイマー
+        //背景
     }
 }
