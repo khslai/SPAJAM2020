@@ -49,7 +49,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  backgourndScores: 02000000040000000600000008000000
+  - {fileID: 0}
+  - {fileID: 0}
+  backgourndScores: 0100000003000000070000000d000000130000001f000000
   degrees:
   - Node_N: 1
     Score: 0

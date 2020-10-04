@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // InputManager : 入力マネージャー
 
@@ -67,5 +68,16 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
             GameManager.Instance.RespawnNotesList.Add(temp);
             Debug.Log("Touched In Leading");
         }
+        else if (gameManager.phase == GameManager.GamePhase.Title)
+        {
+            GameManager.Instance.ChangePhase(GameManager.GamePhase.Leading);
+        }
+        else if (gameManager.phase == GameManager.GamePhase.Final)
+        {
+            GameManager.Instance.Final.FinalShakeAnimator.SetTrigger("Trigger2");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+
     }
 }
