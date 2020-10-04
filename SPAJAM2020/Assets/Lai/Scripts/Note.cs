@@ -10,6 +10,7 @@ public class Note : MonoBehaviour
     [SerializeField] float disappearTime = 3f;
 
     public float SpawnTime { get; set; } = 0f;
+    public bool HitFlag { private get; set; } = false;
 
     private float destroyTimer = 0f;
     private bool mirrored = false;
@@ -34,17 +35,25 @@ public class Note : MonoBehaviour
     }
 
     // ノーツのミラーにする
-    public void ObjectMirror()
+    public void ObjectMirror(float respawnTimeOffset)
     {
         gameObject.SetActive(true);
         transform.position = new Vector3(-transform.position.x, -transform.position.y, 0f);
         destroyTimer = 0f;
         mirrored = true;
+
+        // SetHitFlagを秒後に呼び出す
+        Invoke("SetHitFlag", respawnTimeOffset);
+    }
+
+    private void SetHitFlag()
+    {
+        HitFlag = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "HitChecker")
+        if (HitFlag && collision.tag == "HitChecker")
         {
             //得点の制御
 
@@ -52,6 +61,5 @@ public class Note : MonoBehaviour
             //ノーツを消滅させる
             GameObject.Destroy(this.gameObject);
         }
-
     }
 }

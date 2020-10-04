@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    [SerializeField] private float phaseTime = 5f;
     [SerializeField] private Dance dance = null;
     [SerializeField] private DanceFollowing danceFollowing = null;
     [SerializeField] private Wait wait = null;
     [SerializeField] private Text phaseText = null;
+    [SerializeField] private Text timerText = null;
+    [SerializeField] float respawnTimeOffset = 1.2f;
+
 
     public Dance Dance { get { return dance; } }
     public DanceFollowing DanceFollowing { get { return danceFollowing; } }
     public Wait Wait { get { return wait; } }
+    public List<Note> RespawnNotesList { get; set; } = new List<Note>();
 
     //ゲームの状態を表す変数
     public enum GamePhase
@@ -48,12 +51,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //ダンスを生成
         Debug.Log("PlayerStart DanceLeading");
         phaseText.text = "Leading Phase";
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //
         switch (phase)
         {
             case GamePhase.Leading:
@@ -69,6 +72,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 break;
 
             case GamePhase.Waiting:
+
                 timer += Time.deltaTime;
                 Wait.DoUpdate();
                 break;
@@ -76,56 +80,82 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             default:
                 break;
         }
-        /*
-        if (timer >= phaseTime || Input.GetKeyDown(KeyCode.Space))
-        {
-            // Phaseを切り替える
-            TogglePhase();
-        }
-        */
+        timerText.text = timer.ToString("00.00");
     }
 
     //デバッグ用にキー入力でフェーズを入れ替えられるように
-    void TogglePhase()
-    {
-        timer = 0f;
+    //void TogglePhase()
+    //{
+    //    timer = 0f;
 
-        //プロトの仕様. 0と 1を交互に行う
-        if (phase == GamePhase.Leading)
-        {
-            Debug.Log("PlayerStart DanceFollowing");
-            phaseText.text = "Following Phase";
-            phase = GamePhase.Following;
-            DanceFollowing.DoInitialize();
-        }
-        else if (phase == GamePhase.Following)
-        {
-            Debug.Log("PlayerStart DanceLeading");
-            phaseText.text = "Leading Phase";
-            phase = GamePhase.Leading;
-            DanceFollowing.DoUninit();
-            Dance.DoInitialize();
-        }
-    }
+    //    //プロトの仕様. 0と 1を交互に行う
+    //    if (phase == GamePhase.Leading)
+    //    {
+    //        Debug.Log("PlayerStart DanceFollowing");
+    //        phaseText.text = "Following Phase";
+    //        phase = GamePhase.Following;
+    //        DanceFollowing.DoInitialize();
+    //    }
+    //    else if (phase == GamePhase.Following)
+    //    {
+    //        Debug.Log("PlayerStart DanceLeading");
+    //        phaseText.text = "Leading Phase";
+    //        phase = GamePhase.Leading;
+    //        DanceFollowing.DoUninit();
+    //        Dance.DoInitialize();
+    //    }
+    //}
 
     //TogglePhaseから乗り換える。
     public void ChangePhase(GamePhase nextphase)
     {
-
         Debug.Log("PlayerStart" + nextphase.ToString());
         phase = nextphase;
         phaseText.text = nextphase.ToString();
-        switch (phase) {
-            case GamePhase.Leading: Dance.DoInitialize(); DanceFollowing.DoUninit(); break;
-            case GamePhase.Following: DanceFollowing.DoInitialize();  break;
+        switch (phase)
+        {
+            case GamePhase.Leading:
+
+                Dance.DoInitialize();
+                RespawnNotesList.Clear();
+                break;
+
+            case GamePhase.Following:
+
+                DanceFollowing.DoInitialize();
+                break;
+
+            default:
+                break;
         }
 
-        timer = 0f;
+        if (phase != GamePhase.Following)
+        {
+            timer = 0f;
+        }
     }
 
-    //Danceを生成する関数
-    private void MakeDance()
+    //各ノードを生成するタイミングの制御
+    public void RespawnNote()
     {
-        Debug.Log("PlayerStart DanceLeading");
+        if (RespawnNotesList.Count != 0)
+        {
+            if (RespawnNotesList[0].SpawnTime <= respawnTimeOffset)
+            {
+                if (timer >= RespawnNotesList[0].SpawnTime)
+                {
+                    RespawnNotesList[0].ObjectMirror(respawnTimeOffset);
+                    RespawnNotesList.RemoveAt(0);
+                }
+            }
+            else
+            {
+                if (timer >= RespawnNotesList[0].SpawnTime - respawnTimeOffset)
+                {
+                    RespawnNotesList[0].ObjectMirror(respawnTimeOffset);
+                    RespawnNotesList.RemoveAt(0);
+                }
+            }
+        }
     }
 }

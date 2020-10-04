@@ -20,7 +20,6 @@ public class Dance : MonoBehaviour
 
     public void DoInitialize()
     {
-        //timer = 0;
     }
 
     public void DoUpdate()
@@ -31,15 +30,16 @@ public class Dance : MonoBehaviour
         InputManager.Instance.ButtonDown(GameManager.Instance.timer);
 
         //時間によるシーン遷移
-        if (gameManager.timer > DanceTime )
+        if (gameManager.timer > DanceTime)
         {
             //現在の時間をDanceFollowingに代入 (+補正値を追加)
             gameManager.DanceFollowing.FollowingTime = gameManager.timer + gameManager.DanceFollowing.followingdelta;
             gameManager.ChangePhase(GameManager.GamePhase.Waiting);
             gameManager.Wait.nextnextphase = GameManager.GamePhase.Following;
         }
+
         //タップ回数によるシーン遷移
-        if(gameManager.DanceFollowing.RespawnNotesList.Count >= MaxDanceCount)
+        if (gameManager.RespawnNotesList.Count >= MaxDanceCount)
         {
             //現在の時間をDanceFollowingに代入 (+補正値を追加)
             gameManager.DanceFollowing.FollowingTime = gameManager.timer + gameManager.DanceFollowing.followingdelta;
