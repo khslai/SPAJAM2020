@@ -27,6 +27,7 @@ public class HitChecker : MonoBehaviour
         if (collision.tag == "Notes")
         {
             ScoreManager.Instance.Score++;
+            collision.enabled = false;
             ScoreManager.Instance.CalledShowSprite = false;
             //
             ScoreManager.Instance.SetMaxNode_N();

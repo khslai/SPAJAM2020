@@ -5027,10 +5027,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: ab024889b622f0645a3cd92f407ef272, type: 3}
-  - {fileID: 8300000, guid: 711b95971bc95ca48a89c499a445a0eb, type: 3}
-  - {fileID: 8300000, guid: 1b568cf91f19ff74e9e43266dabecf57, type: 3}
-  - {fileID: 8300000, guid: 65998e50a16967b40a2c907d91d2b5dc, type: 3}
+  - {fileID: 8300000, guid: 20200b12567b8394db8fb446da47cd11, type: 3}
+  - {fileID: 8300000, guid: ec3f3e74aea0e694db699155af79138a, type: 3}
+  - {fileID: 8300000, guid: abdfb85216008694ab8d84050268d4cd, type: 3}
+  - {fileID: 8300000, guid: b9ff37cc95732924387ad8733f6086a7, type: 3}
+  - {fileID: 8300000, guid: e5cc60c80b7bb82428b28a592eb544af, type: 3}
+  - {fileID: 8300000, guid: 76ffefc51fda39f4c9a0fb1057b04588, type: 3}
+  - {fileID: 8300000, guid: c3e438812870f31458a1b693033253b9, type: 3}
 --- !u!1 &2105578432110119812
 GameObject:
   m_ObjectHideFlags: 0
