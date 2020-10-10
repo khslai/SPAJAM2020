@@ -30,9 +30,9 @@ public class HitChecker : MonoBehaviour
             collision.enabled = false;
             ScoreManager.Instance.CalledShowSprite = false;
             //
+            ScoreManager.Instance.HitNote();
             ScoreManager.Instance.SetMaxNode_N();
             ScoreManager.Instance.SetBackGroundObject();
-
         }
 
         Debug.Log("♬");

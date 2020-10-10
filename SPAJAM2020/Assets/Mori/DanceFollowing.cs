@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class DanceFollowing : MonoBehaviour
 {
@@ -8,9 +9,21 @@ public class DanceFollowing : MonoBehaviour
     public GameManager gameManager;
     public float FollowingTime;//DanceTimeから自動で設定
     public float followingdelta = 1.0f;
+    public Animator Gradient_animator;
+    public SpriteRenderer Gradient_sprite;
+    public Color Gardient_default;
+    public Color Gardient_dark;
 
+    public int Note_count;
+    public int Hit_count;
+    private bool finished;
+    
     public void DoInitialize()
     {
+        Gradient_animator.SetTrigger("Trigger");
+        Gradient_sprite.DOColor(Gardient_default,0.1f);
+        Hit_count = 0;
+        finished = false;
     }
 
     public void DoUpdate()
@@ -30,6 +43,8 @@ public class DanceFollowing : MonoBehaviour
         //    RespawnNotesList.RemoveAt(0);
         //    Debug.Log("FollowingReMoveAt");
         //}
+
+
 
         //時間によるシーン遷移
         // timerが初期化されないから、Waitフェイスの時間も一緒に加算
@@ -53,6 +68,19 @@ public class DanceFollowing : MonoBehaviour
 
 
             Debug.Log("FollowingOverTime");
+        }
+    }
+
+    public void HitNote()
+    {
+        Hit_count++;
+        if(finished == false)
+        {
+            if(Hit_count >= Note_count)
+            {
+                Gradient_sprite.DOColor(Gardient_dark,1);
+                finished = true;
+            }
         }
     }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8494347782835334669}
   - component: {fileID: 8494347782835334666}
   - component: {fileID: 4212434871064153784}
-  - component: {fileID: -6341136542239460247}
   - component: {fileID: 2176840534447530032}
   m_Layer: 0
   m_Name: Ripple in FX
@@ -4980,26 +4979,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-6341136542239460247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8494347782835334667}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c0dfc793953f7489368086a4677ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 80212b2477cbdad4fbd12ded41d3e51f, type: 3}
-  - {fileID: 8300000, guid: ea2d55ea53fe6f54fbbd936459d1553a, type: 3}
-  - {fileID: 8300000, guid: 6bad6a42301c2054b876775df52877cf, type: 3}
-  - {fileID: 8300000, guid: e14e7870c37763a48800eef6dd823295, type: 3}
-  - {fileID: 8300000, guid: de689859a2c540e46b9d3ea235512464, type: 3}
-  - {fileID: 8300000, guid: 5126a7dd294b7ab44b6951d92ebc0319, type: 3}
-  - {fileID: 8300000, guid: 4574a37e94725c04ba5f4b1bb95c0602, type: 3}
 --- !u!114 &2176840534447530032
 MonoBehaviour:
   m_ObjectHideFlags: 0

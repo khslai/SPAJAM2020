@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8672747584451589278}
   - component: {fileID: 8053558795455960890}
   - component: {fileID: -1477253115296123426}
-  - component: {fileID: -9035464012247719599}
+  - component: {fileID: -1400184093391478714}
   m_Layer: 0
   m_Name: Ripple out FX
   m_TagString: Untagged
@@ -4988,19 +4988,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105578431632872902}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55c0dfc793953f7489368086a4677ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 80212b2477cbdad4fbd12ded41d3e51f, type: 3}
-  - {fileID: 8300000, guid: 55b0ca595da41a74ea71170ca4db09b4, type: 3}
   - {fileID: 8300000, guid: 6bad6a42301c2054b876775df52877cf, type: 3}
   - {fileID: 8300000, guid: e14e7870c37763a48800eef6dd823295, type: 3}
+  - {fileID: 8300000, guid: 4574a37e94725c04ba5f4b1bb95c0602, type: 3}
   - {fileID: 8300000, guid: de689859a2c540e46b9d3ea235512464, type: 3}
   - {fileID: 8300000, guid: 5126a7dd294b7ab44b6951d92ebc0319, type: 3}
-  - {fileID: 8300000, guid: 4574a37e94725c04ba5f4b1bb95c0602, type: 3}
   - {fileID: 8300000, guid: ea2d55ea53fe6f54fbbd936459d1553a, type: 3}
 --- !u!114 &-1477253115296123426
 MonoBehaviour:
@@ -5014,26 +5013,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b390dc1a2025f74b9d99cf510c7fd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-9035464012247719599
+--- !u!114 &-1400184093391478714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105578431632872902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55c0dfc793953f7489368086a4677ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 20200b12567b8394db8fb446da47cd11, type: 3}
-  - {fileID: 8300000, guid: ec3f3e74aea0e694db699155af79138a, type: 3}
-  - {fileID: 8300000, guid: abdfb85216008694ab8d84050268d4cd, type: 3}
-  - {fileID: 8300000, guid: b9ff37cc95732924387ad8733f6086a7, type: 3}
-  - {fileID: 8300000, guid: e5cc60c80b7bb82428b28a592eb544af, type: 3}
-  - {fileID: 8300000, guid: 76ffefc51fda39f4c9a0fb1057b04588, type: 3}
-  - {fileID: 8300000, guid: c3e438812870f31458a1b693033253b9, type: 3}
+  - {fileID: 8300000, guid: 80212b2477cbdad4fbd12ded41d3e51f, type: 3}
+  - {fileID: 8300000, guid: 6bad6a42301c2054b876775df52877cf, type: 3}
+  - {fileID: 8300000, guid: e14e7870c37763a48800eef6dd823295, type: 3}
+  - {fileID: 8300000, guid: de689859a2c540e46b9d3ea235512464, type: 3}
+  - {fileID: 8300000, guid: 5126a7dd294b7ab44b6951d92ebc0319, type: 3}
 --- !u!1 &2105578432110119812
 GameObject:
   m_ObjectHideFlags: 0

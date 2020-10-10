@@ -29,6 +29,8 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     private SpriteRenderer currentSprite = null;
     private float alphaPerFrame = 0f;
 
+    public DanceFollowing Following_script;
+
     void Start()
     {
         foreach (var sprite in backgourndSprites)
@@ -95,4 +97,10 @@ public class ScoreManager : SingletonMonoBehaviour<ScoreManager>
     {
 
     }
+
+    public void HitNote()
+    {
+        Following_script.HitNote();
+    }
+
 }

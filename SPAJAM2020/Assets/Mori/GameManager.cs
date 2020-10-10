@@ -142,7 +142,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 break;
 
             case GamePhase.Following:
-
                 DanceFollowing.DoInitialize();
                 break;
 
@@ -159,6 +158,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         {
             timer = 0f;
         }
+    }
+
+    public void AddNote()
+    {
+        DanceFollowing.Note_count = RespawnNotesList.Count;
     }
 
     //各ノードを生成するタイミングの制御

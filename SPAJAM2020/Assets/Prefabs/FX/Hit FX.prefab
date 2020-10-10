@@ -40,7 +40,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477181556482831224}
   serializedVersion: 6
-  lengthInSec: 0.7
+  lengthInSec: 1.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 1.5
       minScalar: 1.3
       maxCurve:
         serializedVersion: 2
@@ -284,8 +284,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5.5
-      minScalar: 5
+      scalar: 6.5
+      minScalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1041,21 +1041,21 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0.29644936
-          inSlope: -3.787121
-          outSlope: -3.787121
+          inSlope: -14.6645
+          outSlope: -14.6645
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.22373237
+          outWeight: 0.24575962
         - serializedVersion: 3
-          time: 0.18193862
-          value: 0.1802025
-          inSlope: 0.89267236
-          outSlope: 0.89267236
+          time: 0.058128804
+          value: 0.17625047
+          inSlope: 1.9580604
+          outSlope: 1.9580604
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.30642962
-          outWeight: 0.08610094
+          inWeight: 1
+          outWeight: 0.13040377
         - serializedVersion: 3
           time: 1
           value: 1
@@ -1388,9 +1388,9 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 4048
-        atime2: 32960
-        atime3: 51657
-        atime4: 55127
+        atime2: 16769
+        atime3: 47224
+        atime4: 47224
         atime5: 0
         atime6: 0
         atime7: 0
@@ -4893,6 +4893,7 @@ GameObject:
   - component: {fileID: -7696315579670145222}
   - component: {fileID: 4586216536126024689}
   - component: {fileID: 3749318415857276966}
+  - component: {fileID: -9143999336618639336}
   m_Layer: 0
   m_Name: Hit FX
   m_TagString: Untagged
@@ -9956,13 +9957,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 80212b2477cbdad4fbd12ded41d3e51f, type: 3}
-  - {fileID: 8300000, guid: ea2d55ea53fe6f54fbbd936459d1553a, type: 3}
-  - {fileID: 8300000, guid: 6bad6a42301c2054b876775df52877cf, type: 3}
-  - {fileID: 8300000, guid: e14e7870c37763a48800eef6dd823295, type: 3}
-  - {fileID: 8300000, guid: de689859a2c540e46b9d3ea235512464, type: 3}
-  - {fileID: 8300000, guid: 5126a7dd294b7ab44b6951d92ebc0319, type: 3}
-  - {fileID: 8300000, guid: 4574a37e94725c04ba5f4b1bb95c0602, type: 3}
+  - {fileID: 8300000, guid: 20200b12567b8394db8fb446da47cd11, type: 3}
+  - {fileID: 8300000, guid: 76ffefc51fda39f4c9a0fb1057b04588, type: 3}
+  - {fileID: 8300000, guid: abdfb85216008694ab8d84050268d4cd, type: 3}
+  - {fileID: 8300000, guid: ec3f3e74aea0e694db699155af79138a, type: 3}
+  - {fileID: 8300000, guid: c3e438812870f31458a1b693033253b9, type: 3}
+  - {fileID: 8300000, guid: b9ff37cc95732924387ad8733f6086a7, type: 3}
+  - {fileID: 8300000, guid: e5cc60c80b7bb82428b28a592eb544af, type: 3}
 --- !u!114 &3749318415857276966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9975,3 +9976,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b390dc1a2025f74b9d99cf510c7fd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-9143999336618639336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052967670053251564}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c0dfc793953f7489368086a4677ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 20200b12567b8394db8fb446da47cd11, type: 3}
+  - {fileID: 8300000, guid: 76ffefc51fda39f4c9a0fb1057b04588, type: 3}
+  - {fileID: 8300000, guid: abdfb85216008694ab8d84050268d4cd, type: 3}
+  - {fileID: 8300000, guid: c3e438812870f31458a1b693033253b9, type: 3}
+  - {fileID: 8300000, guid: b9ff37cc95732924387ad8733f6086a7, type: 3}

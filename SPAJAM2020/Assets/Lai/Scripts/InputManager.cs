@@ -12,7 +12,12 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
     [SerializeField] Note note = null;
     [SerializeField] GameObject HitCheckerPrefab = null;
 
+    public Animator Blackscreen_animator;
+
     public Vector3 TouchedPos; 
+
+
+
     void Start()
     {
         if (note == null)
@@ -55,7 +60,6 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
         {
             //Hitチェッカーを作成
             GameObject.Instantiate(HitCheckerPrefab, worldPos, Quaternion.identity);
-
             Debug.Log("Touched In Following");
         }
         else if(gameManager.phase == GameManager.GamePhase.Leading)
@@ -66,18 +70,35 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
 
             // ノーツを記録する処理
             GameManager.Instance.RespawnNotesList.Add(temp);
+            GameManager.Instance.AddNote();
             Debug.Log("Touched In Leading");
         }
         else if (gameManager.phase == GameManager.GamePhase.Title)
         {
             GameManager.Instance.ChangePhase(GameManager.GamePhase.Leading);
+            Note temp = Instantiate(note);
+            temp.transform.position = worldPos;
+            temp.SpawnTime = spawnTime;
+
+            // ノーツを記録する処理
+            GameManager.Instance.RespawnNotesList.Add(temp);
+            Debug.Log("Touched In Leading");
         }
         else if (gameManager.phase == GameManager.GamePhase.Final)
         {
             GameManager.Instance.Final.FinalShakeAnimator.SetTrigger("Trigger2");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+            StartCoroutine(ResetScene());
         }
 
     }
+
+    private IEnumerator ResetScene()
+    {
+        Blackscreen_animator.SetTrigger("Trigger");
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+    }
+
+
 }

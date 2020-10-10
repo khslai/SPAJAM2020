@@ -9,11 +9,9 @@ public class Title : MonoBehaviour
 
     public void DoUpdate()
     {
-        Debug.Log("ttt");
         //一定時間経過後にタッチしたら次に進むように
         if (GameManager.Instance.timer > TitleAnimationTime)
         {
-            Debug.Log("ttt");
             InputManager.Instance.ButtonDown(0);
             titleanimator.SetTrigger("Trigger");
         }
